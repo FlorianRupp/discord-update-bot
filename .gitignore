@@ -6,6 +6,7 @@ __pycache__/
 # custom
 .idea
 dc_bot.cfg
+*.bat
 
 # C extensions
 *.so
