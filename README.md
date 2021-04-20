@@ -19,3 +19,7 @@ trigger configure:
 * ``branch``: The branch to listen on, e.g. master
 * ``channel_id``: The id of the discord channel to listen on. You find this ID by right clicking on a text channel
 * ``script``: The commands to trigger as a list e.g. ``["explorer", "."]`` or ``["./path/to/script"]``
+
+# Commands
+* **!conf**: prints current config
+* **!botstop** stops the bot
