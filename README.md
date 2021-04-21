@@ -11,15 +11,19 @@ and also setup for your discord server (see [here](https://realpython.com/how-to
 3. Then run ```python run.py```
 
 # Config
-Configure the bot with a json file named ``dc_bot.cfg`` (see ``sample.cfg`` for structure).
+Configure the bot with a json file named ``bot_cfg.json`` (see ``sample_cfg.json`` for structure).
 
-In a list specify each trigger to listen on Github web hook posts in a channel. For each
-trigger configure:
-* ``repo``: The name of the Github repository.
-* ``branch``: The branch to listen on, e.g. master
-* ``channel_id``: The id of the discord channel to listen on. You find this ID by right clicking on a text channel
-* ``script``: The commands to trigger as a list e.g. ``["explorer", "."]`` or ``["./path/to/script"]``
+In a list specify each trigger to listen on Github web hook posts in a channel. It is possible to manage
+multiple bot instances on multiple servers with one discord bot ID. Thus give each instance a unique ``name``.
+For each trigger configure:
+* ``name``: the name of the bot instance
+* ``apps``: configure apps here as list of dictionaries
+  * ``repo``: The name of the Github repository.
+  * ``branch``: The branch to listen on, e.g. master
+  ``channel_id``: The id of the discord channel to listen on. You find this ID by right clicking on a text channel
+  * ``script``: The commands to trigger as a list e.g. ``["explorer", "."]`` or ``["./path/to/script"]``
 
 # Commands
 * **!conf**: prints current config
-* **!botstop** stops the bot
+* **!botstop** stops the bot (all instances if running on multiple servers with same ID)
+* **!stop name** only stops bot with this name
