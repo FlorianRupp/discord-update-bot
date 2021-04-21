@@ -17,7 +17,7 @@ channels = [c["channel_id"] for c in CONFIG["apps"]]
 
 
 def check_trigger(title):
-    for c in CONFIG:
+    for c in CONFIG["apps"]:
         if title.split(" ")[0] == f"[{c['repo']}:{c['branch']}]".lower():
             return c
     return False
