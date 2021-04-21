@@ -1,0 +1,14 @@
+{
+  "name": "test",
+  "apps": [
+    {
+      "repo": "<Github repository>",
+      "branch": "<Github Branch>",
+      "channel_id": 1234567890,
+      "script": [
+        "explorer",
+        "."
+      ]
+    }
+  ]
+}

@@ -10,10 +10,10 @@ TOKEN = os.environ["DC_TOKEN"]
 bot = commands.Bot(command_prefix='!')
 
 # read config
-with open("dc_bot.cfg", "r") as f:
+with open("bot_cfg.json", "r") as f:
     CONFIG = json.load(f)
 
-channels = [c["channel_id"] for c in CONFIG]
+channels = [c["channel_id"] for c in CONFIG["apps"]]
 
 
 def check_trigger(title):
@@ -21,6 +21,14 @@ def check_trigger(title):
         if title.split(" ")[0] == f"[{c['repo']}:{c['branch']}]".lower():
             return c
     return False
+
+
+@bot.command(name="stop")
+async def botstop(ctx, name):
+    if name == CONFIG["name"]:
+        await ctx.send(f"Shutdown bot {CONFIG['name']}.")
+        await bot.close()
+        print(f"Shutdown bot {CONFIG['name']}.")
 
 
 @bot.command(name="botstop")
